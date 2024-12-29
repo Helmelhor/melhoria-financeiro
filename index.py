@@ -1,7 +1,7 @@
 import streamlit as st
 import importlib
-import os
 
+# Configuração inicial da página
 st.set_page_config(
     page_title="Gerenciador Financeiro com Python",
     page_icon="💰",
@@ -16,6 +16,7 @@ with st.sidebar:
     except FileNotFoundError:
         st.error("Logo não encontrada. Verifique o caminho do arquivo.")
 
+    # Navegação nas páginas
     selected_page = st.radio(
         "Navegação",
         ["Home", "Dashboard", "Metas financeiras", "Análise de investimentos"]
@@ -27,8 +28,16 @@ try:
 except FileNotFoundError:
     st.error("Imagem de cabeçalho não encontrada. Verifique o caminho do arquivo.")
 
-# Função para carregar páginas
+# Função para carregar páginas com mapeamento explícito
 def load_page(page_name):
+    # Mapeamento entre o nome das abas e os arquivos correspondentes
+    page_map = {
+        "Home": None,  # A Home não tem um arquivo específico
+        "Dashboard": "dashboard",
+        "Metas financeiras": "metas_financeiras",
+        "Análise de investimentos": "analise_investimentos",  # Nome correto do arquivo
+    }
+
     if page_name == "Home":
         st.title("Bem-vindo ao MELHOR gerenciador de finanças do mercado")
         st.write("Controle suas finanças de forma prática e eficiente!")
@@ -36,14 +45,18 @@ def load_page(page_name):
             st.file_uploader("Carregue seu arquivo aqui", type="CSV")
         st.button('Inserir dados manualmente')
     else:
-        try:
-            # Importa dinamicamente o módulo da página selecionada
-            module = importlib.import_module(f"paginas.{page_name.lower().replace(' ', '_')}")
-            module.run()  # Executa a função `run` do módulo
-        except ModuleNotFoundError:
+        module_name = page_map.get(page_name)
+        if module_name:
+            try:
+                # Importa dinamicamente o módulo da página selecionada
+                module = importlib.import_module(f"paginas.{module_name}")
+                module.run()  # Executa a função `run` do módulo
+            except ModuleNotFoundError:
+                st.error(f"A página '{page_name}' não foi encontrada. Verifique os arquivos.")
+            except AttributeError:
+                st.error(f"A página '{page_name}' não possui a função `run`. Verifique o arquivo.")
+        else:
             st.error("Página não encontrada.")
-        except AttributeError:
-            st.error("A página selecionada não possui a função `run`.")
 
 # Carrega a página selecionada
 load_page(selected_page)
