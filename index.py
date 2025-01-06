@@ -22,13 +22,9 @@ with st.sidebar:
         ["Home", "Dashboard", "Metas financeiras", "Análise de investimentos"]
     )
 
-# Adicionando o cabeçalho na página principal
-try:
-    st.image("imagens/header dollar.jpg", use_column_width=True)
-except FileNotFoundError:
-    st.error("Imagem de cabeçalho não encontrada. Verifique o caminho do arquivo.")
 
 if selected_page == "Home":
+    st.image("imagens/header dollar.jpg", use_column_width=True)
     st.title("Bem-vindo ao MELHOR gerenciador de finanças do mercado")
     st.write("Controle suas finanças de forma prática e eficiente!")
     if st.button("Já tenho meu arquivo"):
