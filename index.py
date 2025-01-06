@@ -43,18 +43,7 @@ def load_page(page_name):
         st.title("Bem-vindo ao MELHOR gerenciador de finanças do mercado")
         st.write("Controle suas finanças de forma prática e eficiente!")
         if st.button("Já tenho meu arquivo"):
-            uploaded_file = st.file_uploader("Carregue seu arquivo aqui", type="CSV")
-            if uploaded_file is not None: # Leia o arquivo CSV em um DataFrame 
-                df = pd.read_csv(uploaded_file)
-                # Mostre os dados carregados (opcional) 
-                st.write("Dados Carregados:") 
-                st.write(df)
-                # Exiba uma mensagem de sucesso 
-                st.success("Parabéns, vá para a aba de dashboard agora")
-                # Salve o arquivo no disco
-                with open("arquivo_carregado.csv", "wb") as f:
-                    f.write(uploaded_file.getbuffer())
-                st.info("O arquivo foi salvo como 'arquivo_carregado.csv' no diretório atual.")    
+            st.file_uploader("Carregue seu arquivo aqui", type="CSV")
             
             
 
