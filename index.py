@@ -37,18 +37,22 @@ if selected_page == "Home":
         try:
             df = pd.read_csv(csv_upado, encoding='ISO-8859-1')
             if not df.empty:
+                st.write("Pré-visualização do DataFrame:")
                 st.write(df)
+                st.write(f"Colunas do DataFrame: {df.columns.tolist()}")
                 st.session_state.df = df  # Armazenar o DataFrame no estado da sessão
             else:
                 st.warning('Tem algo de errado com o arquivo carregado.')
         except UnicodeDecodeError:
             st.error("Erro ao ler o arquivo. Tente usar uma codificação diferente.")
+
 elif selected_page == "Dashboard":
     st.header("Painel de acompanhamento financeiro")
     if st.session_state.df is not None:
         df = st.session_state.df
-        st.write(df)
+        st.write(f"DataFrame carregado na sessão, com {df.shape[1]} colunas.")
         
+        # Verifique se o DataFrame tem pelo menos duas colunas
         if df.shape[1] > 1:
             column_to_plot = df.columns[1]
             st.write(f"Usando a segunda coluna: {column_to_plot}")
@@ -64,5 +68,3 @@ elif selected_page == "Dashboard":
             st.warning("O arquivo CSV deve ter pelo menos duas colunas.")
     else:
         st.warning('Nenhum arquivo foi carregado. Vá para a página Home e carregue um arquivo.')
-
-# Seu código adicional aqui
