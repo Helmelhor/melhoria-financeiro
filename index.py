@@ -8,6 +8,12 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
 )
+#definindo a existencia do dataframe
+df = None
+
+if "df" not in st.session_state: 
+    st.session_state.df = None
+
 
 # Adicionando a logo na sidebar
 with st.sidebar:
@@ -28,6 +34,14 @@ if selected_page == "Home":
     st.title("Bem-vindo ao MELHOR gerenciador de finanças do mercado")
     st.write("Controle suas finanças de forma prática e eficiente!")
     if st.button("Já tenho meu arquivo"):
-        st.file_uploader("Carregue seu arquivo aqui ⬇️", type="CSV")
+        csv_upado = st.file_uploader("Carregue seu arquivo aqui ⬇️", type=["CSV","XLSX"])
+        if csv_upado is not None:
+            df = pd.read_csv(csv_upado)
+            if not df.empty:
+                st.write(df)
+                st.session_state.df = df
+            else:
+                st.warning('Tem algo de errado com o arquivo carregado.')
 elif selected_page == "Dashboard":
     st.header("Painel de acompanhamento financeiro")
+    
