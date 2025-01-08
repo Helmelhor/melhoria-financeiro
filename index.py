@@ -60,8 +60,19 @@ elif selected_page == "Dashboard":
             # Criar o gráfico de pizza com Plotly
             fig = px.pie(df, names=column_to_plot, title="Relatório de movimentações bancárias", hole=0.3)
             
-            # Exibir o gráfico de pizza no Streamlit
+            filtro = df['Descricao das Movimentacoes'] == "Rendimento de saldo de carteira - Renda Fixa"
+            rendimentos = df[filtro]
+
+            # Converter a coluna 'Valor' para numérica, tratando erros
+            rendimentos['Valor'] = pd.to_numeric(rendimentos['Valor'], errors='coerce').fillna(0)
+
+            # Somar os rendimentos
+            rendimentos_soma = rendimentos['Valor'].sum()
+            rendimentos_media = rendimentos['Valor'].mean()
+
+            # Exibir os gráficos
             st.plotly_chart(fig, use_container_width=True)
+            st.metric(f"soma renda fixa", value = rendimentos_soma, delta=rendimentos_media)
         else:
             st.warning("O arquivo CSV deve ter pelo menos duas colunas.")
     else:
