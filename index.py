@@ -70,9 +70,13 @@ elif selected_page == "Dashboard":
             rendimentos_soma = rendimentos['Valor'].sum()
             rendimentos_media = rendimentos['Valor'].mean()
 
-            # Exibir os gráficos
+            rendimentos_soma_formatado = f"R$ {rendimentos_soma:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+            rendimentos_media_formatado = f"R$ {rendimentos_media:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+            
+            
+            # Exibir os graficos
             st.plotly_chart(fig, use_container_width=True)
-            st.metric(f"soma renda fixa", value = rendimentos_soma, delta=rendimentos_media)
+            st.metric(f"soma renda fixa", value = rendimentos_soma_formatado, delta=rendimentos_media_formatado)
         else:
             st.warning("O arquivo CSV deve ter pelo menos duas colunas.")
     else:
