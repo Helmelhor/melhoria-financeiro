@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 # Configuração inicial da página
 st.set_page_config(
@@ -40,7 +40,7 @@ if selected_page == "Home":
                 st.write("Pré-visualização do DataFrame:")
                 st.write(df)
                 st.write(f"Colunas do DataFrame: {df.columns.tolist()}")
-                st.session_state.df = df # Armazenar o DataFrame no estado da sessão
+                st.session_state.df = df  # Armazenar o DataFrame no estado da sessão
             else:
                 st.warning('Tem algo de errado com o arquivo carregado.')
         except UnicodeDecodeError:
@@ -57,13 +57,11 @@ elif selected_page == "Dashboard":
             column_to_plot = df.columns[1]
             st.write(f"Usando a segunda coluna: {column_to_plot}")
             
-            # Criar o gráfico de pizza com matplotlib e exibir usando st.pyplot
-            fig, ax = plt.subplots()
-            df[column_to_plot].value_counts().plot.pie(ax=ax, autopct='%1.1f%%')
-            ax.set_ylabel('')  # Remover o label do eixo y
+            # Criar o gráfico de pizza com Plotly
+            fig = px.pie(df, names=column_to_plot, title="Relatório de movimentações bancárias", hole=0.3)
             
             # Exibir o gráfico de pizza no Streamlit
-            st.pyplot(fig)
+            st.plotly_chart(fig, use_container_width=True)
         else:
             st.warning("O arquivo CSV deve ter pelo menos duas colunas.")
     else:
