@@ -66,3 +66,5 @@ elif selected_page == "Dashboard":
             st.warning("O arquivo CSV deve ter pelo menos duas colunas.")
     else:
         st.warning('Nenhum arquivo foi carregado. Vá para a página Home e carregue um arquivo.')
+    if not df.empty:
+        st.balloons()
