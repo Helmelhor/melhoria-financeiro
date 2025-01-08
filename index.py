@@ -40,7 +40,7 @@ if selected_page == "Home":
                 st.write("Pré-visualização do DataFrame:")
                 st.write(df)
                 st.write(f"Colunas do DataFrame: {df.columns.tolist()}")
-                st.session_state.df = df  # Armazenar o DataFrame no estado da sessão
+                st.session_state.df = df # Armazenar o DataFrame no estado da sessão
             else:
                 st.warning('Tem algo de errado com o arquivo carregado.')
         except UnicodeDecodeError:
