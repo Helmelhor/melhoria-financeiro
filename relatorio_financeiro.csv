@@ -1,30 +1,59 @@
-Data/Hora;Descrição das Movimentações;Valor;Saldo;Saldo Sacável"27/12/2024
-19:52:42";Compra realizada - PicPay Card Débito;- R$ 7,00;R$ 2.492,91;R$ 2.492,91"27/12/2024
-19:21:21";Rendimento de saldo de carteira - Renda Fixa;R$ 0,80;-;-"26/12/2024
-19:13:33";Rendimento de saldo de carteira - Renda Fixa;R$ 0,83;R$ 2.499,11;R$ 2.499,11"24/12/2024
-20:53:57";Rendimento de saldo de carteira - Renda Fixa;R$ 0,80;R$ 2.498,28;R$ 2.498,28"23/12/2024
-19:55:19";Rendimento de saldo de carteira - Renda Fixa;R$ 0,85;R$ 2.497,48;R$ 2.497,48"23/12/2024
-08:51:02";Pix Enviado;- R$ 6,12;-;-"22/12/2024
-12:45:12";Pix Enviado;- R$ 30,00;R$ 2.502,75;R$ 2.502,75"20/12/2024
-21:13:48";Rendimento de saldo de carteira - Renda Fixa;R$ 0,81;R$ 2.532,75;R$ 2.532,75"20/12/2024
-18:07:16";Pix Enviado;- R$ 0,99;-;-"19/12/2024
-18:04:27";Rendimento de saldo de carteira - Renda Fixa;R$ 0,83;R$ 2.532,93;R$ 2.532,93"18/12/2024
-18:54:04";Rendimento de saldo de carteira - Renda Fixa;R$ 0,83;R$ 2.532,10;R$ 2.532,10"18/12/2024
-08:52:10";Cobrança com permissão prévia';- R$ 1,90;-;-"17/12/2024
-20:28:27";Rendimento de saldo de carteira - Renda Fixa;R$ 0,81;R$ 2.533,17;R$ 2.533,17"16/12/2024
-16:44:46";Rendimento de saldo de carteira - Renda Fixa;R$ 0,87;R$ 2.532,36;R$ 2.532,36"13/12/2024
-20:02:38";Rendimento de saldo de carteira - Renda Fixa;R$ 0,81;R$ 2.531,49;R$ 2.531,49"12/12/2024
-19:03:57";Rendimento de saldo de carteira - Renda Fixa;R$ 0,77;R$ 2.530,68;R$ 2.530,68"11/12/2024
-19:58:06";Rendimento de saldo de carteira - Renda Fixa;R$ 0,77;R$ 2.529,91;R$ 2.529,91"10/12/2024
-21:37:00";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.529,14;R$ 2.529,14"09/12/2024
-18:38:42";Rendimento de saldo de carteira - Renda Fixa;R$ 0,73;R$ 2.528,38;R$ 2.528,38"08/12/2024
-11:33:59";Pix Enviado;- R$ 7,23;R$ 2.527,65;R$ 2.527,65"06/12/2024
-21:57:28";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.534,88;R$ 2.534,88"05/12/2024
-18:19:29";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.534,12;R$ 2.534,12"04/12/2024
-19:07:51";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.533,36;R$ 2.533,36"03/12/2024
-20:18:54";Rendimento de saldo de carteira - Renda Fixa;R$ 0,78;R$ 2.532,60;R$ 2.532,60"02/12/2024
-17:03:42";Rendimento de saldo de carteira - Renda Fixa;R$ 0,74;R$ 2.531,82;R$ 2.531,82"01/12/2024
-18:42:42";Pix Enviado;- R$ 50,00;R$ 2.531,08;R$ 2.531,08"30/11/2024
-19:01:40";Pix Recebido;R$ 300,00;R$ 2.581,08;R$ 2.581,08"29/11/2024
-17:59:02";Rendimento de saldo de carteira - Renda Fixa;R$ 0,78;R$ 2.281,08;R$ 2.281,08"28/11/2024
+Data/Hora;DescriÔøΩcao das Movimentacoes;Valor;Saldo;Saldo Sacavel
+"27/12/2024
+19:52:42";Compra realizada - PicPay Card Debito;-R$ 7,00;R$ 2.492,91;R$ 2.492,91
+"27/12/2024
+19:21:21";Rendimento de saldo de carteira - Renda Fixa;R$ 0,80;-;-
+"26/12/2024
+19:13:33";Rendimento de saldo de carteira - Renda Fixa;R$ 0,83;R$ 2.499,11;R$ 2.499,11
+"24/12/2024
+20:53:57";Rendimento de saldo de carteira - Renda Fixa;R$ 0,80;R$ 2.498,28;R$ 2.498,28
+"23/12/2024
+19:55:19";Rendimento de saldo de carteira - Renda Fixa;R$ 0,85;R$ 2.497,48;R$ 2.497,48
+"23/12/2024
+08:51:02";Pix Enviado;-R$ 6,12;-;-
+"22/12/2024
+12:45:12";Pix Enviado;-R$ 30,00;R$ 2.502,75;R$ 2.502,75
+"20/12/2024
+21:13:48";Rendimento de saldo de carteira - Renda Fixa;R$ 0,81;R$ 2.532,75;R$ 2.532,75
+"20/12/2024
+18:07:16";Pix Enviado;-R$ 0,99;-;-
+"19/12/2024
+18:04:27";Rendimento de saldo de carteira - Renda Fixa;R$ 0,83;R$ 2.532,93;R$ 2.532,93
+"18/12/2024
+18:54:04";Rendimento de saldo de carteira - Renda Fixa;R$ 0,83;R$ 2.532,10;R$ 2.532,10
+"18/12/2024
+08:52:10";CobranÔøΩa com permissao previa';-R$ 1,90;-;-
+"17/12/2024
+20:28:27";Rendimento de saldo de carteira - Renda Fixa;R$ 0,81;R$ 2.533,17;R$ 2.533,17
+"16/12/2024
+16:44:46";Rendimento de saldo de carteira - Renda Fixa;R$ 0,87;R$ 2.532,36;R$ 2.532,36
+"13/12/2024
+20:02:38";Rendimento de saldo de carteira - Renda Fixa;R$ 0,81;R$ 2.531,49;R$ 2.531,49
+"12/12/2024
+19:03:57";Rendimento de saldo de carteira - Renda Fixa;R$ 0,77;R$ 2.530,68;R$ 2.530,68
+"11/12/2024
+19:58:06";Rendimento de saldo de carteira - Renda Fixa;R$ 0,77;R$ 2.529,91;R$ 2.529,91
+"10/12/2024
+21:37:00";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.529,14;R$ 2.529,14
+"09/12/2024
+18:38:42";Rendimento de saldo de carteira - Renda Fixa;R$ 0,73;R$ 2.528,38;R$ 2.528,38
+"08/12/2024
+11:33:59";Pix Enviado;-R$ 7,23;R$ 2.527,65;R$ 2.527,65
+"06/12/2024
+21:57:28";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.534,88;R$ 2.534,88
+"05/12/2024
+18:19:29";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.534,12;R$ 2.534,12
+"04/12/2024
+19:07:51";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.533,36;R$ 2.533,36
+"03/12/2024
+20:18:54";Rendimento de saldo de carteira - Renda Fixa;R$ 0,78;R$ 2.532,60;R$ 2.532,60
+"02/12/2024
+17:03:42";Rendimento de saldo de carteira - Renda Fixa;R$ 0,74;R$ 2.531,82;R$ 2.531,82
+"01/12/2024
+18:42:42";Pix Enviado;-R$ 50,00;R$ 2.531,08;R$ 2.531,08
+"30/11/2024
+19:01:40";Pix Recebido;R$ 300,00;R$ 2.581,08;R$ 2.581,08
+"29/11/2024
+17:59:02";Rendimento de saldo de carteira - Renda Fixa;R$ 0,78;R$ 2.281,08;R$ 2.281,08
+"28/11/2024
 17:10:55";Rendimento de saldo de carteira - Renda Fixa;R$ 0,76;R$ 2.280,30;R$ 2.280,30
