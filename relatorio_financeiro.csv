@@ -1,4 +1,4 @@
-Data/Hora;DescriÔøΩcao das Movimentacoes;Valor;Saldo;Saldo Sacavel
+Data/Hora;Descriçcao das Movimentacoes;Valor;Saldo;Saldo Sacavel
 "27/12/2024
 19:52:42";Compra realizada - PicPay Card Debito;-R$ 7,00;R$ 2.492,91;R$ 2.492,91
 "27/12/2024
@@ -22,7 +22,7 @@ Data/Hora;DescriÔøΩcao das Movimentacoes;Valor;Saldo;Saldo Sacavel
 "18/12/2024
 18:54:04";Rendimento de saldo de carteira - Renda Fixa;R$ 0,83;R$ 2.532,10;R$ 2.532,10
 "18/12/2024
-08:52:10";CobranÔøΩa com permissao previa';-R$ 1,90;-;-
+08:52:10";Cobrança com permissao previa';-R$ 1,90;-;-
 "17/12/2024
 20:28:27";Rendimento de saldo de carteira - Renda Fixa;R$ 0,81;R$ 2.533,17;R$ 2.533,17
 "16/12/2024
