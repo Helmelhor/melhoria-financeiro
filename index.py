@@ -92,3 +92,17 @@ elif selected_page == "Dashboard":
         st.warning('Nenhum arquivo foi carregado. Vá para a página Home e carregue um arquivo.')
     if not df.empty:
         st.balloons()
+elif selected_page == "Metas financeiras":
+    st.header("Metas Financeiras")
+    
+    criar_tabela_metas()  # Criar tabela se não existir
+    with st.form(key='form_metas'):
+        metas = st.text_input("Meta")
+        quanto_tenho = st.number_input("Quanto tenho", min_value=0)
+        valor_meta = st.number_input("Valor da Meta", min_value=0)
+        contribuicao_mensal = st.number_input("Contribuição Mensal", min_value=0)
+        submit_button = st.form_submit_button(label='Adicionar Meta')
+
+    if submit_button:
+        adicionar_meta(metas, quanto_tenho, valor_meta, contribuicao_mensal)
+        st.success("Meta adicionada com sucesso!")
