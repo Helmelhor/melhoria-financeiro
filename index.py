@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from database import criar_tabela_metas, adicionar_meta, buscar_metas, atualizar_progresso
 
 # Configuração inicial da página
 st.set_page_config(
