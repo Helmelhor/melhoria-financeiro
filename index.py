@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import sqlite3
 from database import criar_tabela_metas, adicionar_meta, buscar_metas, atualizar_progresso
 
 # Configuração inicial da página
@@ -100,6 +101,14 @@ elif selected_page == "Metas financeiras":
             return max(0, meses_necessarios)
         else:
             return None
+    
+    #função excluir meta (caso usuario digite algo errado)
+    def excluir_meta(metas):
+        banco = sqlite3.connect("banco_melhoria.db")
+        cursor = banco.cursor()
+        cursor.execute("DELETE FROM Metas_Financeiras WHERE metas = ?", (metas,))
+        banco.commit()
+        banco.close()
 
     st.header("Metas Financeiras")
     
@@ -137,5 +146,10 @@ elif selected_page == "Metas financeiras":
                 novo_valor = meta[1] + nova_contribuicao
                 atualizar_progresso(meta[0], novo_valor)
                 st.success("Progresso atualizado com sucesso!")
+            
+            if st.button(f"Excluir Meta {meta[0]}"):
+                excluir_meta(meta[0])
+                st.success("Meta excluída com sucesso!")
+    
 
         
