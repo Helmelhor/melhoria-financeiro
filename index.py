@@ -93,6 +93,13 @@ elif selected_page == "Dashboard":
     if not df.empty:
         st.balloons()
 elif selected_page == "Metas financeiras":
+    #função para calular objetivos
+    def calcular_tempo_para_meta(quanto_tenho, valor_meta, contribuicao_mensal):
+        if contribuicao_mensal > 0:
+            meses_necessarios = (valor_meta - quanto_tenho) / contribuicao_mensal
+            return max(0, meses_necessarios)
+        else:
+            return None
     st.header("Metas Financeiras")
     
     criar_tabela_metas()  # Criar tabela se não existir
@@ -106,3 +113,23 @@ elif selected_page == "Metas financeiras":
     if submit_button:
         adicionar_meta(metas, quanto_tenho, valor_meta, contribuicao_mensal)
         st.success("Meta adicionada com sucesso!")
+
+    st.subheader("Suas Metas")
+    metas_existentes = buscar_metas()
+    for meta in metas_existentes:
+        st.write(f"**Meta:** {meta[0]}")
+        st.write(f"**Quanto Tenho:** R$ {meta[1]:,.2f}")
+        st.write(f"**Valor da Meta:** R$ {meta[2]:,.2f}")
+        st.write(f"**Contribuição Mensal:** R$ {meta[3]:,.2f}")
+        meses_necessarios = calcular_tempo_para_meta(meta[1], meta[2], meta[3])
+        if meses_necessarios is not None:
+            st.write(f"**Tempo Necessário para Alcançar a Meta:** {meses_necessarios:.1f} meses")
+        else:
+            st.write("Contribuição mensal não é suficiente para atingir a meta.")
+        
+        nova_contribuicao = st.number_input(f"Adicionar Contribuição para {meta[0]}", min_value=0)
+        if st.button(f"Atualizar Meta {meta[0]}"):
+            novo_valor = meta[1] + nova_contribuicao
+            atualizar_progresso(meta[0], novo_valor)
+            st.success("Progresso atualizado com sucesso!")
+        
