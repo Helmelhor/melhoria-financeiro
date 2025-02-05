@@ -110,6 +110,7 @@ elif selected_page == "Metas financeiras":
         banco.commit()
         banco.close()
 
+
     st.header("Metas Financeiras")
     
     criar_tabela_metas()  # Criar tabela se não existir
@@ -136,10 +137,16 @@ elif selected_page == "Metas financeiras":
             st.write(f"**Valor da Meta:** R$ {meta[2]:,.2f}")
             st.write(f"**Contribuição Mensal:** R$ {meta[3]:,.2f}")
             meses_necessarios = calcular_tempo_para_meta(meta[1], meta[2], meta[3])
+            progresso = meta[1] / meta[2] if meta[2] > 0 else 0
             if meses_necessarios is not None:
-                st.write(f"**Tempo Necessário para Alcançar a Meta:** {meses_necessarios:.1f} meses")
+                col1, col2 = st.columns([3, 1])
+                with col1:
+                    st.write(f"**Tempo Necessário para Alcançar a Meta:** {meses_necessarios:.1f} meses")
+                with col2:
+                    st.progress(progresso)
             else:
                 st.write("Contribuição mensal não é suficiente para atingir a meta.")
+                st.progress(0)
             
             nova_contribuicao = st.number_input(f"Adicionar Contribuição para {meta[0]}", min_value=0)
             if st.button(f"Atualizar Meta {meta[0]}"):
@@ -150,6 +157,6 @@ elif selected_page == "Metas financeiras":
             if st.button(f"Excluir Meta {meta[0]}"):
                 excluir_meta(meta[0])
                 st.success("Meta excluída com sucesso!")
-    
+
 
         
