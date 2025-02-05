@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 from database import criar_tabela_metas, adicionar_meta, buscar_metas, atualizar_progresso
 
+
 # Configuração inicial da página
 st.set_page_config(
     page_title="Gerenciador Financeiro com Python",
@@ -32,8 +33,9 @@ if selected_page == "Home":
     st.image("imagens/header dollar.jpg", use_column_width=True)
     st.title("Bem-vindo ao MELHOR gerenciador de finanças do mercado")
     st.write("Controle suas finanças de forma prática e eficiente!")
-    
-    csv_upado = st.file_uploader("Carregue seu arquivo aqui ⬇️", type=["CSV", "XLSX"])
+
+    csv_upado = st.file_uploader(
+        "Carregue seu arquivo aqui ⬇️", type=["CSV", "XLSX"])
     if csv_upado is not None:
         try:
             df = pd.read_csv(csv_upado, encoding='ISO-8859-1')
@@ -52,24 +54,28 @@ elif selected_page == "Dashboard":
     if st.session_state.df is not None:
         df = st.session_state.df
         st.write(f"DataFrame carregado na sessão, com {df.shape[1]} colunas.")
-        
+
         # Verifique se o DataFrame tem pelo menos duas colunas
         if df.shape[1] > 1:
             column_to_plot = df.columns[1]
             st.write(f"Usando a segunda coluna: {column_to_plot}")
-            
+
             # Criar o gráfico de pizza com Plotly
-            fig = px.pie(df, names=column_to_plot, title="Relatório de movimentações bancárias", hole=0.3)
-            
+            fig = px.pie(df, names=column_to_plot,
+                         title="Relatório de movimentações bancárias", hole=0.3)
+
             filtro_renda_fixa = df['Descricao das Movimentacoes'] == "Rendimento de saldo de carteira - Renda Fixa"
             filtro_gasto_pix = df['Descricao das Movimentacoes'] == "Pix Enviado"
 
             rendimentos = df[filtro_renda_fixa]
             gasto_pix = df[filtro_gasto_pix]
 
+
             # Converter a coluna 'Valor' para numérica, tratando erros
-            rendimentos['Valor'] = pd.to_numeric(rendimentos['Valor'], errors='coerce').fillna(0)
-            gasto_pix['Valor'] = pd.to_numeric(gasto_pix['Valor'], errors='coerce').fillna(0)
+            rendimentos['Valor'] = pd.to_numeric(
+                rendimentos['Valor'], errors='coerce').fillna(0)
+            gasto_pix['Valor'] = pd.to_numeric(
+                gasto_pix['Valor'], errors='coerce').fillna(0)
 
             # Somar os rendimentos
             rendimentos_soma = rendimentos['Valor'].sum()
@@ -77,18 +83,26 @@ elif selected_page == "Dashboard":
             gasto_pix_soma = gasto_pix['Valor'].sum()
             gasto_pix_media = gasto_pix['Valor'].mean()
 
-            rendimentos_soma_formatado = f"R$ {rendimentos_soma:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-            rendimentos_media_formatado = f"R$ {rendimentos_media:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-            gasto_pix_soma_formatado = f"R$ {gasto_pix_soma:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-            gasto_pix_media_formatado = f"R$ {gasto_pix_media:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+            rendimentos_soma_formatado = f"R$ {rendimentos_soma:,.2f}".replace(
+                ",", "X").replace(".", ",").replace("X", ".")
+            rendimentos_media_formatado = f"R$ {rendimentos_media:,.2f}".replace(
+                ",", "X").replace(".", ",").replace("X", ".")
+            gasto_pix_soma_formatado = f"R$ {gasto_pix_soma:,.2f}".replace(
+                ",", "X").replace(".", ",").replace("X", ".")
+            gasto_pix_media_formatado = f"R$ {gasto_pix_media:,.2f}".replace(
+                ",", "X").replace(".", ",").replace("X", ".")
+
 
             # Exibir os graficos
             st.plotly_chart(fig, use_container_width=True)
-            st.metric(f"soma renda fixa", value = rendimentos_soma_formatado, delta=rendimentos_media_formatado)
-            st.metric(f"soma gastos pix", value = gasto_pix_soma_formatado, delta=gasto_pix_media_formatado)
+            st.metric(f"soma renda fixa", value=rendimentos_soma_formatado,
+                      delta=rendimentos_media_formatado)
+            st.metric(f"soma gastos pix", value=gasto_pix_soma_formatado,
+                      delta=gasto_pix_media_formatado)
         else:
             st.warning("O arquivo CSV deve ter pelo menos duas colunas.")
     else:
-        st.warning('Nenhum arquivo foi carregado. Vá para a página Home e carregue um arquivo.')
+        st.warning(
+            'Nenhum arquivo foi carregado. Vá para a página Home e carregue um arquivo.')
     if not df.empty:
         st.balloons()
