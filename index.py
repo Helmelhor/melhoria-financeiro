@@ -162,7 +162,7 @@ elif selected_page == "Metas financeiras":
 elif selected_page == "Análise de investimentos":
 
     # Configurando a API do Gemini
-    client = genai.Client(api_key="AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0")  # Substitua pela sua chave
+    client = genai.Client(api_key="AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0")
 
     # Inicializando a memória da sessão
     if "chat_history" not in st.session_state:
