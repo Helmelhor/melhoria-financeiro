@@ -211,8 +211,8 @@ elif selected_page == "Análise de investimentos":
         resposta = gerar_resposta(user_input, st.session_state.chat_history)
 
         # Armazena no histórico da sessão
-        st.session_state.chat_history.append(f"Usuário: {user_input}")
-        st.session_state.chat_history.append(f"Chatbot: {resposta}")
+        st.session_state.chat_history.append(f"Você: {user_input}")
+        st.session_state.chat_history.append(f"Valéria 🤖: {resposta}")
 
         # Exibe a resposta do chatbot
         st.write(f"**Chatbot:** {resposta}")
