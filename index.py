@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import sqlite3
+from google import genai
 from database import criar_tabela_metas, adicionar_meta, buscar_metas, atualizar_progresso
 
 # Configuração inicial da página
@@ -158,5 +159,60 @@ elif selected_page == "Metas financeiras":
                 excluir_meta(meta[0])
                 st.success("Meta excluída com sucesso!")
 
+elif selected_page == "Análise de investimentos":
 
-        
+    # Configurando a API do Gemini
+    client = genai.Client(api_key="AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0")  # Substitua pela sua chave
+
+    # Inicializando a memória da sessão
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []  # Histórico de conversa
+    if "csv_data" not in st.session_state:
+        st.session_state.csv_data = None  # Dados do CSV armazenado
+
+    # Função para gerar respostas com contexto
+    def gerar_resposta(pergunta, historico):
+        contexto = "\n".join(historico[-5:])  # Usar as últimas 5 mensagens para contexto
+        prompt = f"Histórico da conversa:\n{contexto}\nUsuário: {pergunta}\nChatbot:"
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt,
+        )
+        return response.text
+
+    # Função para ler e armazenar o CSV
+    def carregar_csv(file):
+        df = pd.read_csv(file)
+        st.session_state.csv_data = df  # Armazena os dados do CSV na sessão
+        return df.describe(include="all")  # Retorna um resumo do CSV
+
+    # Interface do chatbot
+    st.header("Valer.ia 🤖 - Chatbot de Análise de Investimentos")
+
+    # Caixa de upload de arquivo
+    st.subheader("📂 Envie um arquivo CSV")
+    uploaded_file = st.file_uploader("Escolha um arquivo CSV", type=["csv"])
+
+    if uploaded_file:
+        resumo = carregar_csv(uploaded_file)
+        st.write("**Resumo do Arquivo CSV:**")
+        st.write(resumo)
+
+    # Entrada do usuário
+    st.subheader("💬 Converse com a IA")
+    user_input = st.chat_input("Digite sua pergunta:")
+
+    if user_input:
+        # Se houver um CSV armazenado, adiciona os dados ao contexto
+        if st.session_state.csv_data is not None:
+            dados_csv = st.session_state.csv_data.head(5).to_string()  # Pegando as 5 primeiras linhas
+            user_input = f"{user_input}\n\nAqui estão os primeiros dados do CSV:\n{dados_csv}"
+
+        resposta = gerar_resposta(user_input, st.session_state.chat_history)
+
+        # Armazena no histórico da sessão
+        st.session_state.chat_history.append(f"Usuário: {user_input}")
+        st.session_state.chat_history.append(f"Chatbot: {resposta}")
+
+        # Exibe a resposta do chatbot
+        st.write(f"**Chatbot:** {resposta}")
