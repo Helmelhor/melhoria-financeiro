@@ -1,3 +1,6 @@
+link to application: https://melhoria-financeiro.streamlit.app/
+
+
 formatação do csv: 
 1 - trocar os ";" por ",".
 2 - trocar as "," dos números decimais por ".".
