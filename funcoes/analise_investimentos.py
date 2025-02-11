@@ -1,11 +1,10 @@
 import streamlit as st
 import pandas as pd
 import google.generativeai as genai
-import os
 
 # Configurar API do Gemini
 def configurar_api_gemini():
-    api_key = os.getenv("GEMINI_API_KEY")  # Pegando da variável de ambiente
+    api_key = "AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0" # Pegando da variável de ambiente
 
     if not api_key:
         st.error("API Key do Gemini não encontrada. Configure a variável de ambiente 'GEMINI_API_KEY'.")
