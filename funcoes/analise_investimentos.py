@@ -4,27 +4,25 @@ import google.generativeai as genai
 
 # Configurar API do Gemini
 def configurar_api_gemini():
-    api_key = "AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0" # Pegando da variável de ambiente
+    api_key = "AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0"
 
     if not api_key:
         st.error("API Key do Gemini não encontrada. Configure a variável de ambiente 'GEMINI_API_KEY'.")
-        return None
+        return False
 
-    genai.configure(api_key=api_key)  # Configurando API corretamente
-    return genai
+    genai.configure(api_key=api_key)  # Configura corretamente a API
+    return True
 
 # Função para gerar resposta do chatbot
 def gerar_resposta(pergunta, historico):
-    if not genai.api_key:
-        return "Erro: API do Gemini não está configurada corretamente."
-
     contexto = "\n".join(historico[-5:])  # Pegando as últimas 5 mensagens do histórico
     prompt = f"Histórico da conversa:\n{contexto}\nUsuário: {pergunta}\nChatbot:"
 
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")  # Usando modelo correto
+        model = genai.GenerativeModel("gemini-1.5-flash")  # Criando o modelo corretamente
         response = model.generate_content(prompt)
-        return response.text if response and response.text else "Não recebi uma resposta."
+        return response.text if response and hasattr(response, "text") else "Não recebi uma resposta válida da IA."
+    
     except Exception as e:
         return f"Erro ao gerar resposta: {e}"
 
@@ -37,6 +35,10 @@ def carregar_csv(file):
 # Página de análise de investimentos
 def exibir_pagina_analise_investimentos():
     st.header("Valer.ia 🤖 - Agente especializada em finanças")
+
+    # Configurar API antes de qualquer operação
+    if not configurar_api_gemini():
+        return
 
     st.subheader("📂 Envie um arquivo CSV")
     uploaded_file = st.file_uploader("Escolha um arquivo CSV", type=["csv"])
