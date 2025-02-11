@@ -42,7 +42,7 @@ def exibir_pagina_analise_investimentos():
         return
 
     st.subheader("📂 Envie um arquivo CSV")
-    uploaded_file = st.file_uploader("Escolha um arquivo CSV", type=["csv"])
+    uploaded_file = st.file_uploader("Escolha um arquivo CSV", type=["CSV", "XLSX"])
 
     if uploaded_file:
         resumo = carregar_csv(uploaded_file)
