@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import sqlite3
+from senha import chave
 from google import genai
 from database import criar_tabela_metas, adicionar_meta, buscar_metas, atualizar_progresso
 
@@ -162,7 +163,7 @@ elif selected_page == "Metas financeiras":
 elif selected_page == "Análise de investimentos":
 
     # Configurando a API do Gemini
-    client = genai.Client(api_key = "AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0" )
+    client = genai.Client(api_key = chave )
 
     # Inicializando a memória da sessão
     if "chat_history" not in st.session_state:
