@@ -3,4 +3,4 @@ streamlit
 plotly
 pandas
 numpy
-google-genai
+google-generativeai==0.3.2
