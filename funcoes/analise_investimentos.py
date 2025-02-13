@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import google.generativeai as genai
 
-
 # Configurar API do Gemini
 def configurar_api_gemini():
     api_key = "AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0"
@@ -19,6 +18,7 @@ def gerar_resposta(pergunta, historico):
     contexto = "\n".join(historico[-5:])  # Pegando as últimas 5 mensagens do histórico
     prompt = f"Histórico da conversa:\n{contexto}\nUsuário: {pergunta}\nChatbot:"
 
+    #define o modelo e verifica se o output é válido
     try:
         model = genai.GenerativeModel("gemini-1.5-flash")  # Criando o modelo corretamente
         response = model.generate_content(prompt)

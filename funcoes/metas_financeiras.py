@@ -19,6 +19,7 @@ def excluir_meta(metas):
 def exibir_pagina_metas_financeiras():
     st.header("Metas Financeiras")
     
+    #criando formulário interativo
     criar_tabela_metas()
     with st.form(key='form_metas'):
         metas = st.text_input("Meta")

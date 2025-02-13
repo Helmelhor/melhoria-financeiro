@@ -3,6 +3,7 @@ from sqlite3 import Error
 
 def criar_tabela_metas():
     banco = sqlite3.connect("banco_melhoria.db")
+    #permite executar comandos
     cursor = banco.cursor()
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS Metas_Financeiras (
@@ -29,7 +30,7 @@ def buscar_metas():
     banco = sqlite3.connect("banco_melhoria.db")
     cursor = banco.cursor()
     cursor.execute("SELECT * FROM Metas_Financeiras")
-    metas = cursor.fetchall()
+    metas = cursor.fetchall() #recupera todas as querys
     banco.close()
     return metas
 

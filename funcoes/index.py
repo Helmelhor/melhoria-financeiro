@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Inicializando variáveis de sessão
+# Inicializando variáveis de sessão, guardando os dados para que não sejam esquecidos durate a utilização do usuario
 if "df" not in st.session_state:
     st.session_state.df = None
 if "csv_data" not in st.session_state:
@@ -30,7 +30,7 @@ with st.sidebar:
     except FileNotFoundError:
         st.error("Logo não encontrada. Verifique o caminho do arquivo.")
 
-    # Navegação nas páginas
+    # Navegação nas páginas, cria as opções na side bar
     selected_page = st.radio(
         "Navegação",
         ["Home", "Dashboard", "Metas financeiras", "Análise de investimentos"]

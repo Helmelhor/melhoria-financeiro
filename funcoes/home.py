@@ -7,6 +7,7 @@ def exibir_pagina_home():
     st.write("Controle suas finanças de forma prática e eficiente!")
     
     csv_upado = st.file_uploader("Carregue seu arquivo aqui ⬇️", type=["CSV", "XLSX"])
+    #se o csv upado não for vazio, defina um data frame, se o df não estiver vazio, exiba ele...
     if csv_upado is not None:
         try:
             df = pd.read_csv(csv_upado, encoding='ISO-8859-1')
