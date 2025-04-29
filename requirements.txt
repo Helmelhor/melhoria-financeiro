@@ -1,0 +1,6 @@
+#em algum momento ele não estava mais reconhecendo as dependencias quando upei ele pro servidor da streamlit
+streamlit
+plotly
+pandas
+numpy
+google-genai
