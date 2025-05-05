@@ -1,4 +1,3 @@
-https://melhoria-financas.streamlit.app/
 # **💰 Gerenciador Financeiro Pessoal**  
 
 *Aplicação Streamlit para controle financeiro inteligente com integração Gemini AI*  
