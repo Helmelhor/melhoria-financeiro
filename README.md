@@ -24,9 +24,9 @@ Aplicação completa para gestão financeira pessoal com:
 ### **2. 📊 Dashboard Financeiro**  
 - Gráfico de pizza com distribuição de gastos  
 - Métricas-chave:  
-  - Saldo atual  
-  - Maior gasto/categoria  
-  - Receita total  
+  - Movimentações bancárias  
+  - Soma renda fixa  
+  - Soma gastos no pix  
 
 ### **3. 🎯 Metas Financeiras**  
 - Simulador de economia com projeção temporal  
@@ -36,7 +36,7 @@ Aplicação completa para gestão financeira pessoal com:
 
 ### **4. 💬 Valer.ia - Assistente Financeiro**  
 - Chatbot com Gemini AI para:  
-  - Análise personalizada dos seus dados  
+  - Análise dos seus dados  
   - Dicas de economia  
   - Explicações sobre métricas  
 
@@ -54,9 +54,9 @@ Aplicação completa para gestão financeira pessoal com:
 
 ---
 
-## **🚀 Como Usar**  
+## **🚀 Como Acessar?**  
 
-Acesse diretamente a aplicação:  
+Aplicação hospedada no Streamlit Community Cloud:  
 👉 [https://melhoria-financas.streamlit.app/](https://melhoria-financas.streamlit.app/)  
 
 ---
