@@ -6,6 +6,11 @@
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Gemini](https://img.shields.io/badge/Gemini_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://gemini.google.com/)
 
+## **🚀 Como Acessar?**  
+
+Aplicação hospedada no Streamlit Community Cloud:  
+👉 [https://melhoria-financas.streamlit.app/](https://melhoria-financas.streamlit.app/)
+
 ## **📌 Visão Geral**  
 Aplicação completa para gestão financeira pessoal com:  
 ✔ **Análise visual** de gastos e receitas  
@@ -50,12 +55,5 @@ Aplicação completa para gestão financeira pessoal com:
 | ![Gemini](https://img.shields.io/badge/Gemini-4285F4?logo=google&logoColor=white) | API de IA |  
 | ![Pandas](https://img.shields.io/badge/Pandas-2C2D72?logo=pandas&logoColor=white) | Processamento de dados |  
 | ![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?logo=python&logoColor=white) | Visualizações |  
-
----
-
-## **🚀 Como Acessar?**  
-
-Aplicação hospedada no Streamlit Community Cloud:  
-👉 [https://melhoria-financas.streamlit.app/](https://melhoria-financas.streamlit.app/)  
 
 ---
