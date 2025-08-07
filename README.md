@@ -1,6 +1,4 @@
-# **💰 Gerenciador Financeiro Pessoal**  
-
-*Aplicação Streamlit para controle financeiro inteligente com integração Gemini AI*  
+# **💰 Gerenciador Financeiro Pessoal**
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://melhoria-financas.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
