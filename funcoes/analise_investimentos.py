@@ -1,19 +1,16 @@
 import streamlit as st
 import pandas as pd
 import google.generativeai as genai
-import os
-from dotenv import load_dotenv
 
 # Configurar API do Gemini
 def configurar_api_gemini():
-    load_dotenv()
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = "AIzaSyBI2z3lHl9mdRLYZnKUum9Hrc5PL4kt-Q0"
 
     if not api_key:
-        st.error("API Key do Gemini não encontrada. Configure a variável de ambiente 'GEMINI_API_KEY' no arquivo .env.")
+        st.error("API Key do Gemini não encontrada. Configure a variável de ambiente 'GEMINI_API_KEY'.")
         return False
 
-    genai.configure(api_key=api_key)
+    genai.configure(api_key=api_key)  # Configura corretamente a API
     return True
 
 # Função para gerar resposta do chatbot
